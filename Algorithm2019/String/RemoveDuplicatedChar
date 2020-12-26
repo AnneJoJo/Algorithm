@@ -1,0 +1,38 @@
+# Given a strings, remove duplicate lettersso that every letter appears once and onlyonce.You must make sure your result is the smallest in lexicographical order among all possible results.
+#
+# Note: This
+# question is the
+# same as 1081: https: // leetcode.com / problems / smallest - subsequence - of - distinct - characters /
+#
+# Example
+# 1:
+#
+# Input: s = "bcabc"
+# Output: "abc"
+# Example
+# 2:
+#
+# Input: s = "cbacdcbc"
+# Output: "acdb"
+#key points: count, order, asii, visited
+# the only case we need to worry about is that the pre letter lager than next one. if we still have extra left we should remove it. otherwise we have to keep
+# as for the letter follows the lexico order, we ony keep one. 
+
+class Solution:
+    def removeDuplicateChar(self, s):
+        count = [0 for _ in range(26)]
+        used = [False for _ in range(26)]
+        res = []
+        for c in s:
+            count[ord(c) - 97] += 1
+
+        for i in range(len(s)):
+            count[ord(s[i]) - 97] -= 1
+            if not used[ord(s[i]) - 97]:
+                while len(res) > 0 and count[ord(res[-1]) - 97] > 0 and res[-1] > s[i]:
+                    used[ord(res[-1]) - 97] = False
+                    res.pop()
+                res.append(s[i])
+            used[ord(s[i]) - 97] = True
+
+        return ''.join(res)
