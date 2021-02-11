@@ -38,3 +38,26 @@ def merge_intervals(Intervals):
 a = [Interval(1,3),Interval(3,8),Interval(4,10),Interval(7,25)]
 
 print(merge_intervals(a))
+
+####################>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#########################
+
+ def merge(intervals: List[List[int]]) -> List[List[int]]:
+        
+        sorted_intervals = sorted(intervals, key=lambda x:x[0])
+        start = sorted_intervals[0][0]
+        end = sorted_intervals[0][1]
+        res = []
+        
+        for i in range(1,len(sorted_intervals)):
+            if sorted_intervals[i][0] <= end:
+                if sorted_intervals[i][1] > end:
+                    end = sorted_intervals[i][1]
+                
+                    
+            else:
+                res.append([start,end])
+                start = sorted_intervals[i][0]
+                end = sorted_intervals[i][1]
+                     
+        res = res + [[start,end]]
+        return res
