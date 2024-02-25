@@ -1,5 +1,5 @@
 
-def validMontainArray(arr):
+#def validMontainArray(arr):
 	# wrong method can't handle the plateaus
 	# count = 0
 	# for i in range(1,len(arr)-1):
@@ -9,25 +9,21 @@ def validMontainArray(arr):
 	
 	# return True if count == 1 else False
 
-	i = 0
+	#i = 0
         
-    while i < len(arr) -1 and arr[i] < arr[i+1]:
-        i += 1
+    # while i < len(arr) -1 and arr[i] < arr[i+1]:
+    #     i += 1
             
-    if i == 0 or i == len(arr) - 1:
-        return False
-    while i < len(arr)-1 and arr[i] > arr[i+1]:
-        i += 1
+    # if i == 0 or i == len(arr) - 1:
+    #     return False
+    # while i < len(arr)-1 and arr[i] > arr[i+1]:
+    #     i += 1
             
             
             
-    return i == len(arr) - 1
+    # return i == len(arr) - 1
 
 
-
-
-
-print(validMontainArray([0,2,3,4,5,2,1,0]))
 
 # wrong method : didn't notice the order, it will pass for valley too.
 # increase = 0
@@ -67,4 +63,4 @@ print(validMontainArray([0,2,3,4,5,2,1,0]))
 #     }
 #     return !increasing
     
-# };
+# }

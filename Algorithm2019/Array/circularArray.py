@@ -13,7 +13,6 @@ def circularArrayLoop(self, nums: List[int]) -> bool:
                     break
                 next_step = nums[idx]
                 if next_step*nums[i] < 0:
-                    print(next_step, nums[i])
                     break
                 idx += next_step
                 idx = (idx + l) % l

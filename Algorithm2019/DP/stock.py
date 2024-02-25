@@ -43,8 +43,43 @@
 如果持有股票 必须先卖之后才能再买
 因为都是正数，全部加法计算，maintain 最大值即可
 
-"""
+[3, 2, 6, 5, 0, 3]
 
+max（5 ，0）
+
+class Solution {
+public:
+    int dp[1001][101][3];
+    int solve(vector<int>&p,int n,int i,int trans,int k,int  t)
+    {
+        // base case
+        if(i >= n || trans >=k )
+            return 0;
+        int r1 = 0 , r2 = 0 ;
+        
+        if(dp[i][trans][t] != -1)
+            return dp[i][trans][t] ;
+        // either you buy a stock on the ith day or don't
+        if(t == 0)
+        {
+            r1 = max(solve(p,n,i+1,trans,k,1) - p[i] , solve(p,n,i+1,trans,k,0));
+        }
+        // eifher you sell the stock on the ith day or don't
+        if(t == 1)
+        {
+            r2 = max(solve(p,n,i+1,trans + 1 , k,0) + p[i] , solve(p,n,i+1,trans,k,1));
+        }
+        return dp[i][trans][t] = max(r1,r2);
+    }
+    int maxProfit(int k, vector<int>& p) {
+        int n = p.size();
+        memset(dp,-1,sizeof(dp));
+        return solve(p,n,0,0,k,0);
+    }
+};
+
+"""
+# one transaction == buy + sell
 
 class Stock(object):
     def maxProfit(self, k, prices):
@@ -59,13 +94,13 @@ class Stock(object):
         1   0   0   4   4  4 4
         2   0   0   4   4  4 7
 
-
         dif -3  -2  -2 -2 -2 -2
             -3 -2   -2  -2 1 0
+            
             3   2   6   8  5 6
         0   0   0   0   0  0 0
-        1   0   0   4   6  6 6
-        2   0   0   4   6  6 7
+        1   0   0   0   0  0 0
+        2   0   0   0   0  0 0
 
         """
 
@@ -78,8 +113,7 @@ class Stock(object):
         if prices == []:
             return 0
         col = len(prices)
-        dpT = [ [0] * col for _ in xrange(k + 1) ]
-
+        dpT = [ [0] * col for _ in range(k + 1) ]
 
         for i in range(1 , k +1):
             max_diff = -prices[0]
@@ -87,6 +121,8 @@ class Stock(object):
                 dpT[i][j] = max(dpT[i][j-1] ,prices[j] + max_diff ) #sell
                 max_diff = max(max_diff, dpT[i-1][j] -prices[j]) #maxprofit of last transaction at the same day. buy if larger
 
-        print(dpT)
         return dpT[k][col - 1]
+    
+    
+    
 

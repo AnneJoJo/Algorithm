@@ -21,8 +21,6 @@ def backtrack(start,end,path,dir,res,matrix):
 
         return res
     if start == end:
-        print(path)
-
         res = min(res,len(path+[[start[0],start[1]]]))
 
         return res

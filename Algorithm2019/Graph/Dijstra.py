@@ -1,22 +1,23 @@
 import heapq
-def dijs(graph,n):
+def dijsktra(graph,n):
     visited = [0]*n
-    dist = [float('inf')] * n
+    dist = [float('inf')] * n # distance from start place to the node
     heap = [[0,0]]
     heapq.heapify(heap)
     print(graph)
     while heap:
         cur_node, cur_dist = heapq.heappop(heap)
-        print(heap)
+        
         visited[cur_node] = 1
         if cur_node not in graph.keys():continue
         for neighbor in graph[cur_node]:
             next_node,next_dist = neighbor[0],neighbor[1]
             if visited[next_node]: continue
-            if next_dist + cur_dist < dist[next_node]:
+            if next_dist + cur_dist < dist[next_node]: # relaxtion
                 dist[next_node] = next_dist + cur_dist
                 heap.append([next_node,next_dist + cur_dist])
 
+        print(heap)
         heapq.heapify(heap)
 
 
@@ -24,8 +25,8 @@ def dijs(graph,n):
 
 
 
-print(dijs({0:[[1,1]],1:[[3,2],[2,4]],2:[[4,4]],3:[[2,8]]},5))
-print(dijs({0:[[1,100],[2,500]],1:[[2,100]]},3))
+#print(dijs({0:[[1,1]],1:[[3,2],[2,4]],2:[[4,4]],3:[[2,8]]},5))
+print(dijsktra({0:[[1,100],[2,500]],1:[[2,100]]},3))
 
 #787. Cheapest Flights Within K Stops
 # There are n cities connected by m flights. Each fight starts from city u and arrives at v with a price w.

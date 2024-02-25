@@ -45,8 +45,6 @@ class Solution:
         countZero = 0
         length = len(arr)
         for left in range(len(arr)):
-
-
             if arr[left] == 0:
                 if(left == len(arr)-1):
                     length -= 1

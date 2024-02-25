@@ -15,7 +15,7 @@ def merge_k_sort_list(arr):
     if arr == [] or len(arr) == 0:
         return None
     from heapq import heapify, heappop,heappush
-    head = res =ListNode(0)
+    head = res = ListNode(0)
 
     heap = []
     for each_list in arr:

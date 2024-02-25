@@ -12,9 +12,6 @@ def playlist(N,M,B):
     if b is 0 we could repeat the song any way
     if b is 1, just make sure two same song won't be next each other
 
-
-
-
     while N >= 0:
         if buffer > 0:
             res.append(one of M) m has be new
