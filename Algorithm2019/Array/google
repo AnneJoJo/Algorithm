@@ -1,0 +1,49 @@
+Phone screen (1 round) :
+We would like to design an alerting system for a server. The input to the system is error rates of the server over time.
+[4,9,6,14,0,50,45,50,50,50,0,4,4]. This means the server had an error rate of 4% during time [0, 1), 9% during time [1, 2), 6% during the time [2, 3), and so on.
+
+Part 1: Write a program that returns True if and only if there exists some interval of interval_length seconds which includes target, time and where all error rates in the interval are greater than or equal to min error rate The input consists of an array of error rates, and the values for target time, interval length and min error_rate.
+Eg: target time=5, interval length=5,min error rate=45, returns true, interval [5,10) satisfies
+
+Part 2: Suppose that instead of interval_length and min_error_rate, you are given a threshold. Your program should return True if and only if there exists some interval containing target_time for which length(interval) min_error_rate(interval) >= threshold. The input consists of an array of error rates and the values for target_time and threshold.
+Example : target time: 6, threshold: 200, Returns true, interval (5, 10) has length 5 and minerror_rate 55, and 5* 55 > 250
+
+Virtual Onsite (5 rounds):
+
+Onsite Round 1
+Generate a candy crush board.
+Conditions:
+
+No 3 same colored candies on the same row or column
+There needs to be a valid move
+Board should be random
+Note: Similar question here.
+
+Onsite Round 2
+Write a function that takes a string, and counts the number of words in it, unless those words are enclosed in double quotes. Ex: "His name was "Major Tom"=3
+Note: Can’t use python split function
+
+Onsite Round 3
+Find the top 'N' most chatty users by word count.
+Note: I don’t remember what it looked like but the chat logs had other details like time stamp, user name and such. Just needed basic parsing , using a hashmap to save number of words used and sort this list in the end.
+
+Onsite Round 4
+Write a function which copies a part of an image to another location in the same image. given the height and width of the image, and set Color and getColor.
+
+Onsite Round 5:
+Googleyness and Behavioral round:
+
+How do you motivate team members?
+Talk about a time when you went out of your way for a client or colleague.
+How do you handle an ambiguos task/project given by your manager?
+Note: It's important to know what Googleyness means before this round, do your research. This guy is good, even for other companies [Dan Croiter] (https://www.youtube.com/watch?v=uPjeKSDuoGw)
+
+
+Onsite ll (2 rounds):
+To assess L4 fit
+
+Given an array of length n, find the probability of reaching the last index if there is a dice with various probabilities to take the steps. Eg: a 6 sided die with probabilities of [0.1,0.1,0.1,0.2,0.2,0.3]
+Note: Closest approximation to the question. I think there's a knight's board probability question on leetcode with a similar concept here.
+
+A binary tree can be expressed as a list of tuples of the form (N,L,R) where N identifies a node in the tree, and L and R identify the left and right children of that node, respectively. Assume that all node ids are positive integers. If either L or R are -1 , it signifies the lack of a left or right child. Given a list of nodes, as well as two node ids, write a function to return the path from node id to the another.
+Note: Not exactly the same question, but a similar one: here.
